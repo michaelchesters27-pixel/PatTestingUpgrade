@@ -1,3 +1,5 @@
+Version: v1.2
+
 PAT TESTING TYRONE — FULL GITHUB-READY WEBSITE
 
 1. Replace the complete contents of the existing GitHub repository with everything in this ZIP.
