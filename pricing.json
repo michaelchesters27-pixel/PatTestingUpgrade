@@ -3,8 +3,8 @@
   "basePrice": 85,
   "extraItemPrice": 2,
   "outOfHoursCharge": 30,
-  "pricingNote": "Includes visual inspection, electrical testing where required, pass/fail labels and certificate/report after testing.",
-  "noticeText": "Evening and weekend appointments available by request.",
+  "pricingNote": "Includes visual inspection, electrical testing where appropriate, pass/fail labels, an appliance register and certificate/report for completed, paid work.",
+  "noticeText": "Small and large bookings accepted across Northern Ireland. Evening and weekend appointments are available by request.",
   "locations": [
     {
       "label": "Ballygawley / local",
@@ -71,8 +71,8 @@
       "charge": 30
     },
     {
-      "label": "Other / not listed",
-      "charge": 0
+      "label": "Other Northern Ireland location \u2014 travel confirmed before booking",
+      "charge": null
     }
   ]
 }
