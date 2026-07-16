@@ -1,2 +1,2 @@
-PAT Testing Tyrone Northern Ireland SEO Website v1.2
-Removed the public Leave a review button while retaining the Google Business Profile link.
+PAT Testing Tyrone Northern Ireland SEO Website v1.3
+Improved homepage conversion, region-specific content, honest calculator defaults, accessible navigation and image performance.
