@@ -56,12 +56,12 @@
     },
     {
       "label": "Belfast",
-      "charge": 0,
+      "charge": 30,
       "minimumBooking": 150
     },
     {
       "label": "Lisburn",
-      "charge": 0,
+      "charge": 30,
       "minimumBooking": 150
     },
     {
@@ -73,7 +73,7 @@
       "charge": 30
     },
     {
-      "label": "Other Northern Ireland location \u2014 travel confirmed before booking",
+      "label": "Other Northern Ireland location — travel confirmed before booking",
       "charge": null
     }
   ]
