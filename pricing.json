@@ -56,11 +56,13 @@
     },
     {
       "label": "Belfast",
-      "charge": 30
+      "charge": 0,
+      "minimumBooking": 150
     },
     {
       "label": "Lisburn",
-      "charge": 30
+      "charge": 0,
+      "minimumBooking": 150
     },
     {
       "label": "Craigavon / Portadown",
