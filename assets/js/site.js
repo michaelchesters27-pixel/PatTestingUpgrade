@@ -2,7 +2,7 @@
   const menuButton=document.querySelector('.menu-toggle');
   const menu=document.querySelector('.mobile-menu');
   if(menuButton&&menu){
-    if(!menu.id) menu.id='mobile-menu';
+    if(!menu.id)menu.id='mobile-menu';
     menuButton.setAttribute('aria-controls',menu.id);
     const closeMenu=()=>{menu.classList.remove('open');menuButton.setAttribute('aria-expanded','false');};
     menuButton.addEventListener('click',()=>{const open=menu.classList.toggle('open');menuButton.setAttribute('aria-expanded',String(open));});
@@ -12,6 +12,7 @@
   }
 
   const belfastHref='/areas/belfast/';
+  const lisburnHref='/areas/lisburn/';
   const derryHref='/areas/derry/';
   const strabaneHref='/areas/strabane/';
   const armaghHref='/areas/armagh/';
@@ -21,27 +22,20 @@
     const panel=dropdown.querySelector('.dropdown-panel');
     if(!button||!panel||!button.textContent.trim().startsWith('Areas'))return;
 
-    if(!panel.querySelector(`a[href="${belfastHref}"]`)){
-      const link=document.createElement('a');link.href=belfastHref;link.textContent='Belfast';
-      const combined=panel.querySelector('a[href="/areas/belfast-lisburn/"]');
-      if(combined)panel.insertBefore(link,combined);else panel.appendChild(link);
-    }
-    if(!panel.querySelector(`a[href="${derryHref}"]`)){
-      const link=document.createElement('a');link.href=derryHref;link.textContent='Derry';
-      const combined=panel.querySelector('a[href="/areas/derry-strabane/"]');
-      if(combined)panel.insertBefore(link,combined);else panel.appendChild(link);
-    }
-    if(!panel.querySelector(`a[href="${strabaneHref}"]`)){
-      const link=document.createElement('a');link.href=strabaneHref;link.textContent='Strabane';
-      const combined=panel.querySelector('a[href="/areas/derry-strabane/"]');
-      if(combined)panel.insertBefore(link,combined);else panel.appendChild(link);
-    }
-    if(!panel.querySelector(`a[href="${armaghHref}"]`)){
-      const link=document.createElement('a');link.href=armaghHref;link.textContent='Armagh';
-      const combined=panel.querySelector('a[href="/areas/armagh-craigavon/"]');
-      if(combined)panel.insertBefore(link,combined);else panel.appendChild(link);
-    }
+    const insertBefore=(href,label,beforeHref)=>{
+      if(panel.querySelector(`a[href="${href}"]`))return;
+      const link=document.createElement('a');link.href=href;link.textContent=label;
+      const before=panel.querySelector(`a[href="${beforeHref}"]`);
+      if(before)panel.insertBefore(link,before);else panel.appendChild(link);
+    };
+    insertBefore(belfastHref,'Belfast','/areas/belfast-lisburn/');
+    insertBefore(lisburnHref,'Lisburn','/areas/belfast-lisburn/');
+    insertBefore(derryHref,'Derry','/areas/derry-strabane/');
+    insertBefore(strabaneHref,'Strabane','/areas/derry-strabane/');
+    insertBefore(armaghHref,'Armagh','/areas/armagh-craigavon/');
 
+    const belfastRegion=panel.querySelector('a[href="/areas/belfast-lisburn/"]');
+    if(belfastRegion)belfastRegion.textContent='Belfast & Lisburn region';
     const northWest=panel.querySelector('a[href="/areas/derry-strabane/"]');
     if(northWest)northWest.textContent='North-west coverage';
     const armaghCombined=panel.querySelector('a[href="/areas/armagh-craigavon/"]');
@@ -59,7 +53,8 @@
     link.addEventListener('click',()=>{menu.classList.remove('open');if(menuButton)menuButton.setAttribute('aria-expanded','false');});
   };
   addMobileAreaLink(belfastHref,'Belfast',null);
-  addMobileAreaLink(derryHref,'Derry',belfastHref);
+  addMobileAreaLink(lisburnHref,'Lisburn',belfastHref);
+  addMobileAreaLink(derryHref,'Derry',lisburnHref);
   addMobileAreaLink(strabaneHref,'Strabane',derryHref);
   addMobileAreaLink(armaghHref,'Armagh',strabaneHref);
 
@@ -73,9 +68,12 @@
       if(regional)column.insertBefore(link,regional);else column.appendChild(link);
     };
     insertBeforeRegional(belfastHref,'Belfast','/areas/belfast-lisburn/');
+    insertBeforeRegional(lisburnHref,'Lisburn','/areas/belfast-lisburn/');
     insertBeforeRegional(derryHref,'Derry','/areas/derry-strabane/');
     insertBeforeRegional(strabaneHref,'Strabane','/areas/derry-strabane/');
     insertBeforeRegional(armaghHref,'Armagh','/areas/armagh-craigavon/');
+    const belfastRegion=column.querySelector('a[href="/areas/belfast-lisburn/"]');
+    if(belfastRegion)belfastRegion.textContent='Belfast & Lisburn region';
     const northWest=column.querySelector('a[href="/areas/derry-strabane/"]');
     if(northWest)northWest.textContent='North-west coverage';
     const armaghCombined=column.querySelector('a[href="/areas/armagh-craigavon/"]');
@@ -85,14 +83,18 @@
   if(location.pathname==='/'||location.pathname==='/index.html'){
     const belfastCard=[...document.querySelectorAll('a.card-link[href="/areas/belfast-lisburn/"]')].find(a=>a.querySelector('h3')?.textContent.includes('Belfast'));
     if(belfastCard){
+      const lisburnCard=belfastCard.cloneNode(true);
+      lisburnCard.href=lisburnHref;
+      const lt=lisburnCard.querySelector('h3');const lc=lisburnCard.querySelector('p');const lx=lisburnCard.querySelector('.text-link');
+      if(lt)lt.textContent='Lisburn';if(lc)lc.textContent='Dedicated PAT testing for Lisburn offices, retail, hospitality, landlords and organisations.';if(lx)lx.textContent='PAT testing in Lisburn →';
+      belfastCard.insertAdjacentElement('afterend',lisburnCard);
       belfastCard.href=belfastHref;
       const title=belfastCard.querySelector('h3');const copy=belfastCard.querySelector('p');const cta=belfastCard.querySelector('.text-link');
       if(title)title.textContent='Belfast';if(copy)copy.textContent='Dedicated PAT testing for Belfast offices, retail, hospitality, salons, landlords and organisations.';if(cta)cta.textContent='PAT testing in Belfast →';
     }
     const regionalCard=[...document.querySelectorAll('a.card-link[href="/areas/derry-strabane/"]')].find(a=>a.querySelector('h3')?.textContent.includes('Derry'));
     if(regionalCard){
-      const strabaneCard=regionalCard.cloneNode(true);
-      strabaneCard.href=strabaneHref;
+      const strabaneCard=regionalCard.cloneNode(true);strabaneCard.href=strabaneHref;
       const st=strabaneCard.querySelector('h3');const sc=strabaneCard.querySelector('p');const sx=strabaneCard.querySelector('.text-link');
       if(st)st.textContent='Strabane';if(sc)sc.textContent='Dedicated PAT testing for Strabane businesses, schools, clubs, landlords and organisations.';if(sx)sx.textContent='PAT testing in Strabane →';
       regionalCard.insertAdjacentElement('afterend',strabaneCard);
@@ -110,21 +112,38 @@
 
   if(location.pathname==='/areas/belfast-lisburn/'||location.pathname==='/areas/belfast-lisburn/index.html'){
     const actions=document.querySelector('.page-hero-actions');
-    if(actions&&!actions.querySelector(`a[href="${belfastHref}"]`)){const link=document.createElement('a');link.className='btn-light';link.href=belfastHref;link.textContent='Looking for Belfast? View Belfast PAT testing';actions.appendChild(link);}
+    if(actions&&!actions.querySelector(`a[href="${belfastHref}"]`)){const link=document.createElement('a');link.className='btn-light';link.href=belfastHref;link.textContent='PAT Testing Belfast';actions.appendChild(link);}
+    if(actions&&!actions.querySelector(`a[href="${lisburnHref}"]`)){const link=document.createElement('a');link.className='btn-light';link.href=lisburnHref;link.textContent='PAT Testing Lisburn';actions.appendChild(link);}
   }
-
   if(location.pathname==='/areas/derry-strabane/'||location.pathname==='/areas/derry-strabane/index.html'){
     const actions=document.querySelector('.page-hero-actions');
     if(actions&&!actions.querySelector(`a[href="${derryHref}"]`)){const link=document.createElement('a');link.className='btn-light';link.href=derryHref;link.textContent='PAT Testing Derry';actions.appendChild(link);}
     if(actions&&!actions.querySelector(`a[href="${strabaneHref}"]`)){const link=document.createElement('a');link.className='btn-light';link.href=strabaneHref;link.textContent='PAT Testing Strabane';actions.appendChild(link);}
   }
-
   if(location.pathname==='/areas/armagh-craigavon/'||location.pathname==='/areas/armagh-craigavon/index.html'){
     const actions=document.querySelector('.page-hero-actions');
     if(actions&&!actions.querySelector(`a[href="${armaghHref}"]`)){const link=document.createElement('a');link.className='btn-light';link.href=armaghHref;link.textContent='Looking for Armagh? View Armagh PAT testing';actions.appendChild(link);}
   }
 
   if(location.pathname==='/areas/'||location.pathname==='/areas/index.html'){
+    const belfastRegional=[...document.querySelectorAll('a.card-link[href="/areas/belfast-lisburn/"]')][0];
+    if(belfastRegional){
+      if(!document.querySelector(`a.card-link[href="${belfastHref}"]`)){
+        const card=belfastRegional.cloneNode(true);card.href=belfastHref;
+        const t=card.querySelector('h3');const c=card.querySelector('p');const x=card.querySelector('.text-link');
+        if(t)t.textContent='Belfast';if(c)c.textContent='Dedicated PAT testing information for Belfast businesses, landlords and organisations.';if(x)x.textContent='PAT testing in Belfast →';
+        belfastRegional.parentNode.insertBefore(card,belfastRegional);
+      }
+      if(!document.querySelector(`a.card-link[href="${lisburnHref}"]`)){
+        const card=belfastRegional.cloneNode(true);card.href=lisburnHref;
+        const t=card.querySelector('h3');const c=card.querySelector('p');const x=card.querySelector('.text-link');
+        if(t)t.textContent='Lisburn';if(c)c.textContent='Dedicated PAT testing information for Lisburn businesses, landlords and organisations.';if(x)x.textContent='PAT testing in Lisburn →';
+        belfastRegional.parentNode.insertBefore(card,belfastRegional);
+      }
+      const t=belfastRegional.querySelector('h3');const c=belfastRegional.querySelector('p');const x=belfastRegional.querySelector('.text-link');
+      if(t)t.textContent='Belfast & Lisburn region';if(c)c.textContent='Broader regional PAT testing coverage around Belfast and Lisburn.';if(x)x.textContent='View regional coverage →';
+    }
+
     const regionalCard=[...document.querySelectorAll('a.card-link[href="/areas/derry-strabane/"]')].find(a=>a.querySelector('h3')?.textContent.includes('Derry'));
     if(regionalCard){
       if(!document.querySelector(`a.card-link[href="${derryHref}"]`)){
