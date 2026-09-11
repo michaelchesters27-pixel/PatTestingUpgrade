@@ -22,7 +22,7 @@
     {"label":"Lisburn","charge":30,"minimumBooking":150},
     {"label":"Derry","charge":30,"minimumBooking":150},
     {"label":"Craigavon / Portadown","charge":30},
-    {"label":"Newry","charge":30},
+    {"label":"Newry","charge":30,"minimumBooking":150},
     {"label":"Other Northern Ireland location — travel confirmed before booking","charge":null}
   ]
 }
