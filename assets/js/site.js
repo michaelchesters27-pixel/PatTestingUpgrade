@@ -18,13 +18,14 @@
     {href:'/areas/strabane/',label:'Strabane',regional:'/areas/derry-strabane/'},
     {href:'/areas/armagh/',label:'Armagh',regional:'/areas/armagh-craigavon/'},
     {href:'/areas/craigavon/',label:'Craigavon',regional:'/areas/armagh-craigavon/'},
+    {href:'/areas/portadown/',label:'Portadown',regional:'/areas/armagh-craigavon/'},
     {href:'/areas/newry/',label:'Newry',regional:'/areas/newry-down/'}
   ];
 
   const regionalLabels={
     '/areas/belfast-lisburn/':'Belfast & Lisburn region',
     '/areas/derry-strabane/':'North-west coverage',
-    '/areas/armagh-craigavon/':'Craigavon & Portadown region',
+    '/areas/armagh-craigavon/':'Upper Bann & County Armagh',
     '/areas/newry-down/':'County Down coverage'
   };
 
@@ -84,7 +85,8 @@
     const armaghRegion=[...document.querySelectorAll('a.card-link[href="/areas/armagh-craigavon/"]')][0];
     cloneCard(armaghRegion,'/areas/armagh/','Armagh','Dedicated PAT testing for Armagh businesses, schools, shops and organisations.','PAT testing in Armagh →');
     cloneCard(armaghRegion,'/areas/craigavon/','Craigavon','Dedicated PAT testing for Craigavon offices, retail, schools, workshops and organisations.','PAT testing in Craigavon →');
-    relabelCard(armaghRegion,'Craigavon & Portadown region','Broader regional PAT testing coverage for Portadown and the wider Craigavon area.','View regional coverage →');
+    cloneCard(armaghRegion,'/areas/portadown/','Portadown','Dedicated PAT testing for Portadown shops, offices, schools, workshops and organisations.','PAT testing in Portadown →');
+    relabelCard(armaghRegion,'Upper Bann & County Armagh','Broader regional PAT testing coverage across Upper Bann and surrounding County Armagh.','View regional coverage →');
 
     const downRegion=[...document.querySelectorAll('a.card-link[href="/areas/newry-down/"]')][0];
     cloneCard(downRegion,'/areas/newry/','Newry','Dedicated PAT testing for Newry businesses, landlords, schools and organisations.','PAT testing in Newry →');
@@ -94,7 +96,7 @@
   const regionButtons={
     '/areas/belfast-lisburn/':[['/areas/belfast/','PAT Testing Belfast'],['/areas/lisburn/','PAT Testing Lisburn']],
     '/areas/derry-strabane/':[['/areas/derry/','PAT Testing Derry'],['/areas/strabane/','PAT Testing Strabane']],
-    '/areas/armagh-craigavon/':[['/areas/armagh/','PAT Testing Armagh'],['/areas/craigavon/','PAT Testing Craigavon']],
+    '/areas/armagh-craigavon/':[['/areas/armagh/','PAT Testing Armagh'],['/areas/craigavon/','PAT Testing Craigavon'],['/areas/portadown/','PAT Testing Portadown']],
     '/areas/newry-down/':[['/areas/newry/','PAT Testing Newry']]
   };
   const path=location.pathname.replace(/index\.html$/,'');
