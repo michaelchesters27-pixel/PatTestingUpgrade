@@ -6,75 +6,23 @@
   "pricingNote": "Includes visual inspection, electrical testing where appropriate, pass/fail labels, an appliance register and certificate/report for completed, paid work.",
   "noticeText": "Small and large bookings accepted across Northern Ireland. Evening and weekend appointments are available by request.",
   "locations": [
-    {
-      "label": "Ballygawley / local",
-      "charge": 0
-    },
-    {
-      "label": "Augher",
-      "charge": 0
-    },
-    {
-      "label": "Clogher",
-      "charge": 0
-    },
-    {
-      "label": "Sixmilecross",
-      "charge": 0
-    },
-    {
-      "label": "Omagh",
-      "charge": 10
-    },
-    {
-      "label": "Dungannon",
-      "charge": 10
-    },
-    {
-      "label": "Cookstown",
-      "charge": 10
-    },
-    {
-      "label": "Fintona",
-      "charge": 10
-    },
-    {
-      "label": "Strabane",
-      "charge": 15
-    },
-    {
-      "label": "Coalisland",
-      "charge": 15
-    },
-    {
-      "label": "Armagh",
-      "charge": 15
-    },
-    {
-      "label": "Enniskillen",
-      "charge": 15
-    },
-    {
-      "label": "Belfast",
-      "charge": 30,
-      "minimumBooking": 150
-    },
-    {
-      "label": "Lisburn",
-      "charge": 30,
-      "minimumBooking": 150
-    },
-    {
-      "label": "Craigavon / Portadown",
-      "charge": 30
-    },
-    {
-      "label": "Newry",
-      "charge": 30
-    },
-    {
-      "label": "Other Northern Ireland location — travel confirmed before booking",
-      "charge": null
-    }
+    {"label":"Ballygawley / local","charge":0},
+    {"label":"Augher","charge":0},
+    {"label":"Clogher","charge":0},
+    {"label":"Sixmilecross","charge":0},
+    {"label":"Omagh","charge":10},
+    {"label":"Dungannon","charge":10},
+    {"label":"Cookstown","charge":10},
+    {"label":"Fintona","charge":10},
+    {"label":"Strabane","charge":15},
+    {"label":"Coalisland","charge":15},
+    {"label":"Armagh","charge":15},
+    {"label":"Enniskillen","charge":15},
+    {"label":"Belfast","charge":30,"minimumBooking":150},
+    {"label":"Lisburn","charge":30,"minimumBooking":150},
+    {"label":"Derry","charge":30,"minimumBooking":150},
+    {"label":"Craigavon / Portadown","charge":30},
+    {"label":"Newry","charge":30},
+    {"label":"Other Northern Ireland location — travel confirmed before booking","charge":null}
   ]
 }
