@@ -73,6 +73,16 @@
     }
   }
 
+  // Keep the Belfast page wording customer-facing and positive.
+  if(location.pathname==='/areas/belfast/'||location.pathname==='/areas/belfast/index.html'){
+    const callout=document.querySelector('.callout');
+    const heading=callout?.querySelector('strong');
+    const copy=callout?.querySelector('p');
+    if(heading&&heading.textContent.trim()==='Based in Ballygawley, serving Belfast'){
+      if(copy)copy.textContent='PAT Testing Tyrone provides a mobile PAT testing service throughout Belfast, with clear travel charges and booking costs agreed before your visit.';
+    }
+  }
+
   document.querySelectorAll('a[target="_blank"]').forEach(a=>{if(!a.rel.includes('noopener'))a.rel=(a.rel+' noopener').trim();});
   document.querySelectorAll('[data-year]').forEach(year=>year.textContent=new Date().getFullYear());
 })();
