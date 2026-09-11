@@ -19,6 +19,7 @@
     {href:'/areas/armagh/',label:'Armagh',regional:'/areas/armagh-craigavon/'},
     {href:'/areas/craigavon/',label:'Craigavon',regional:'/areas/armagh-craigavon/'},
     {href:'/areas/portadown/',label:'Portadown',regional:'/areas/armagh-craigavon/'},
+    {href:'/areas/lurgan/',label:'Lurgan',regional:'/areas/armagh-craigavon/'},
     {href:'/areas/newry/',label:'Newry',regional:'/areas/newry-down/'}
   ];
 
@@ -86,6 +87,7 @@
     cloneCard(armaghRegion,'/areas/armagh/','Armagh','Dedicated PAT testing for Armagh businesses, schools, shops and organisations.','PAT testing in Armagh →');
     cloneCard(armaghRegion,'/areas/craigavon/','Craigavon','Dedicated PAT testing for Craigavon offices, retail, schools, workshops and organisations.','PAT testing in Craigavon →');
     cloneCard(armaghRegion,'/areas/portadown/','Portadown','Dedicated PAT testing for Portadown shops, offices, schools, workshops and organisations.','PAT testing in Portadown →');
+    cloneCard(armaghRegion,'/areas/lurgan/','Lurgan','Dedicated PAT testing for Lurgan shops, offices, schools, workshops and organisations.','PAT testing in Lurgan →');
     relabelCard(armaghRegion,'Upper Bann & County Armagh','Broader regional PAT testing coverage across Upper Bann and surrounding County Armagh.','View regional coverage →');
 
     const downRegion=[...document.querySelectorAll('a.card-link[href="/areas/newry-down/"]')][0];
@@ -96,7 +98,7 @@
   const regionButtons={
     '/areas/belfast-lisburn/':[['/areas/belfast/','PAT Testing Belfast'],['/areas/lisburn/','PAT Testing Lisburn']],
     '/areas/derry-strabane/':[['/areas/derry/','PAT Testing Derry'],['/areas/strabane/','PAT Testing Strabane']],
-    '/areas/armagh-craigavon/':[['/areas/armagh/','PAT Testing Armagh'],['/areas/craigavon/','PAT Testing Craigavon'],['/areas/portadown/','PAT Testing Portadown']],
+    '/areas/armagh-craigavon/':[['/areas/armagh/','PAT Testing Armagh'],['/areas/craigavon/','PAT Testing Craigavon'],['/areas/portadown/','PAT Testing Portadown'],['/areas/lurgan/','PAT Testing Lurgan']],
     '/areas/newry-down/':[['/areas/newry/','PAT Testing Newry']]
   };
   const path=location.pathname.replace(/index\.html$/,'');
